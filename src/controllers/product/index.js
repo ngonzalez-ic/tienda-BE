@@ -5,7 +5,7 @@ module.exports = {
   getAllProducts: async (req, res) => {
     const product = await productModel.find({});
     console.log(product);
-    res.status(200).send({ product });
+    res.status(201).send({ product });
   },
   getById: async (req, res) => {
     console.log(req.params.id);
@@ -14,6 +14,7 @@ module.exports = {
   },
 
   createProducts: async (req, res) => {
+    console.log(req.body);
     try {
       const product = productModel(
         ({ name, sku, image, description, highlith, price } = req.body)
@@ -25,14 +26,15 @@ module.exports = {
       res.status(500).send({ message: e.message });
     }
   },
-  /*   updateProducts: async (res, req) => {
+  updateProducts: async (res, req) => {
     const product = await productModel.update(
       { _id: req.params.id },
       req.body,
       { multi: fase }
     );
-  }, */
-  /*   deleteProducts: async (req, res) => {
-    const product = await productModel.deleteOne({ _id: req.params.id })
-  } */
+  },
+  deleteProducts: async (req, res) => {
+    console.log(req.params.id);
+    const product = await productModel.deleteOne({ _id: req.params.id });
+  },
 };
