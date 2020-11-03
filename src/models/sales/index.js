@@ -1,7 +1,7 @@
-const mongoose = require("../../../.bin/mongodb");
-const user = require("../user");
-const { schema } = require("../user");
-const Schema = mongoose.Schema;
+const mongoose = require('../../../.bin/mongodb')
+const user = require('../user')
+const { schema } = require('../user')
+const Schema = mongoose.Schema
 
 const salesModel = Schema({
   date: Date,
@@ -15,6 +15,6 @@ const salesModel = Schema({
   payment: {
     status: String,
     method: String,
-    dataExpiration: Date,
-  },
-});
+    dataExpiration: Date
+  }
+})
