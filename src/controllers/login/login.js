@@ -1,5 +1,3 @@
-const userModel = require('../../models/user')
+import userModel from '../../models/user'
 
-module.exports = {
-  validate: async (req, res, next) => {}
-}
+export async function validate (req, res, next) {}
