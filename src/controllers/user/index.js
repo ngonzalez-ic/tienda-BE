@@ -1,18 +1,19 @@
 const userModel = require("../../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const PWA = "pwa";
 
 module.exports = {
   validate: async (req, res, next) => {
     try {
       console.log(req.body.user);
-      const { error, message, data } = await userModel.validateUser(
+      const { data, error, message } = await userModel.validateUser(
         req.body.user,
         req.body.password
       );
       if (!error) {
         console.log(data);
-        const token = jwt.sign({ userId: data._id }, req.app.get("secretKey"), {
+        const token = jwt.sign({ userId: data }, PWA, {
           expiresIn: "1h",
         });
         res.json({ message: message, token: token });
