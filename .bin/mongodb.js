@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+mongoosePaginate = require("mongoose-paginate-v2");
 
 mongoose.connect(
   "mongodb://localhost/utn",
