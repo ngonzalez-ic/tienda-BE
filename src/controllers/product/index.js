@@ -1,5 +1,8 @@
 const productModel = require("../../models/product/index");
+const multer = require("multer");
+var DIR = "./public/images/";
 
+var upload = multer({ dest: DIR }).single("photo");
 module.exports = {
   getAllProducts: async (req, res) => {
     const product = await productModel.find({});
@@ -54,7 +57,6 @@ module.exports = {
         });
       });
     } catch (e) {
-      console.log(e);
       next(e);
     }
   },
