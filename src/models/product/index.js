@@ -1,9 +1,20 @@
 const mongoose = require("../../../.bin/mongodb");
 const Schema = mongoose.Schema;
+
+const imgSchema = new mongoose.Schema({
+  fieldname: "String",
+  originalname: "String",
+  encoding: "String",
+  mimetype: "String",
+  destination: "String",
+  filename: "String",
+  path: "String",
+  size: "String",
+});
 const productsSchema = Schema({
   name: String,
   sku: String,
-  image: String,
+  image: imgSchema,
   description: String,
   stock: Number,
   // destacados

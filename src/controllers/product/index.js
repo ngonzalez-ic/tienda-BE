@@ -1,8 +1,8 @@
 const productModel = require("../../models/product/index");
 const multer = require("multer");
-var DIR = "./public/images/";
+const DIR = "./public/images/";
 
-var upload = multer({ dest: DIR }).single("photo");
+var upload = multer({ dest: "./public/images/" }).single("photo");
 module.exports = {
   getAllProducts: async (req, res) => {
     const product = await productModel.find({});
