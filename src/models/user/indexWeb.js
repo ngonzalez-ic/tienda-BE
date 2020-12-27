@@ -31,7 +31,7 @@ usersSchema.pre("save", function (next) {
   this.password = bcrypt.hashSync(this.password, 10);
   next();
 });
-usersSchema.statics.validateUser = async function (user, email, password) {
+usersSchema.statics.validateUser = async function (email, password) {
   const userWeb = await this.findOne({ email: email });
 
   if (userWeb) {

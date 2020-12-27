@@ -4,11 +4,11 @@ const jwt = require("jsonwebtoken");
 const PWA = "pwa";
 
 module.exports = {
-  validate: async (req, res, next) => {
+  login: async (req, res, next) => {
     try {
-      console.log(req.body.user);
+      console.log(req.body.email);
       const { data, error, message } = await userModel.validateUser(
-        req.body.user,
+        req.body.email,
         req.body.password
       );
       if (!error) {
