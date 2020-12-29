@@ -14,7 +14,7 @@ const imgSchema = new mongoose.Schema({
 const productsSchema = Schema({
   name: String,
   sku: String,
-  image: imgSchema,
+  images: imgSchema,
   description: String,
   stock: Number,
   // destacados
@@ -22,8 +22,8 @@ const productsSchema = Schema({
   price: Number,
 });
 productsSchema.virtual("image_path").get(function () {
-  if (this.image && this.image.filename) {
-    return "http://localhost:3001/images" + this.image.filname;
+  if (this.images && this.images.filename) {
+    return "http://localhost:3001/images/" + this.images.filename;
   } else {
     return null;
   }
