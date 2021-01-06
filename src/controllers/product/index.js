@@ -1,10 +1,16 @@
 const productModel = require("../../models/product/index");
 const multer = require("multer");
+const { search } = require("../../routers/product");
 var DIR = "./public/images/";
 var upload = multer({ dest: "./public/images/" }).single("photo");
 module.exports = {
   getAllProducts: async (req, res) => {
-    const product = await productModel.find({});
+    let queryName = { name: "kongo" }; //{req.query.search;}
+    console.log(queryName);
+
+    const product = await productModel.find({
+      name: { $regex: ".*" + req.query.search + ".*", $options: "i" },
+    });
     console.log(product);
     res.status(201).send({ product });
   },
