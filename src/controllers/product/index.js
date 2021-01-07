@@ -5,9 +5,7 @@ var DIR = "./public/images/";
 var upload = multer({ dest: "./public/images/" }).single("photo");
 module.exports = {
   getAllProducts: async (req, res) => {
-    let queryName = { name: "kongo" }; //{req.query.search;}
-    console.log(queryName);
-
+    let queryName = { name: "kongo" };
     const product = await productModel.find({
       name: { $regex: ".*" + req.query.search + ".*", $options: "i" },
     });
@@ -18,6 +16,7 @@ module.exports = {
     console.log(req.params.id);
     const product = await productModel.findById(req.params.id);
     res.json(product);
+    return;
   },
 
   createProducts: async (req, res, next) => {
