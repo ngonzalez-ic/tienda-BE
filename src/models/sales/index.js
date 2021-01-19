@@ -1,12 +1,10 @@
-const mongoose = require('../../../.bin/mongodb')
-const user = require('../user')
-const { schema } = require('../user')
-const Schema = mongoose.Schema
+const mongoose = require("../../../.bin/mongodb");
+const Schema = mongoose.Schema;
 
 const salesSchema = Schema({
   date: Date,
   userId: String,
-  product_id: String,
+  productId: String,
   whithOutTac: Number,
   price: Number,
   priceOff: Number,
@@ -14,8 +12,7 @@ const salesSchema = Schema({
   payment: {
     status: String,
     method: String,
-    dataExpiration: Date
-  }
-})
+  },
+});
 
-module.exports = mongoose.model('sale,', salesSchema)
+module.exports = mongoose.model("Sale,", salesSchema);

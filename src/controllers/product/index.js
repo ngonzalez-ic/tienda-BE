@@ -5,7 +5,6 @@ const DIR = "./public/images/";
 const upload = multer({ dest: "./public/images/" }).single("photo");
 module.exports = {
   getAllProducts: async (req, res) => {
-    const queryName = { name: "kongo" };
     const product = await productModel.find({
       name: { $regex: ".*" + req.query.search + ".*", $options: "i" },
     });
