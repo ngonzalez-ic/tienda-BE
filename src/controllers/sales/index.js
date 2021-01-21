@@ -2,6 +2,7 @@ const saleModel = require("../../models/sales/index");
 
 module.exports = {
   createSale: async (req, res) => {
+    console.log(req.body);
     try {
       const sale = saleModel({
         date: new Date(),
@@ -12,8 +13,8 @@ module.exports = {
         priceOff: "",
         unit: req.body.unit,
         payment: {
-          status: req.body.status,
-          method: req.body.method,
+          status: req.body.payment.status,
+          method: req.body.payment.method,
         },
       });
       const document = await sale.save();
