@@ -17,4 +17,4 @@ const salesSchema = Schema({
   payment: paymentSchema,
 });
 
-module.exports = mongoose.model("Sale,", salesSchema);
+module.exports = mongoose.model("Sale", salesSchema);
