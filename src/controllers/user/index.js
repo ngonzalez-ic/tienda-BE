@@ -6,7 +6,6 @@ const PWA = "pwa";
 module.exports = {
   validate: async (req, res, next) => {
     try {
-      console.log(req.body.user);
       const { data, error, message } = await userModel.validateUser(
         req.body.user,
         req.body.password
