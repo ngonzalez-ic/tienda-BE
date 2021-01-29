@@ -13,8 +13,8 @@ module.exports = {
         priceOff: "",
         unit: req.body.unit,
         payment: {
-          status: req.body.payment.status,
-          method: req.body.payment.method,
+          status: req.body.status,
+          method: req.body.method,
         },
       });
       const document = await sale.save();
