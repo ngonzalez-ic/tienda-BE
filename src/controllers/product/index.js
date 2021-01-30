@@ -20,11 +20,11 @@ module.exports = {
       const product = new productModel({
         name: req.body.name,
         sku: req.body.sku,
+        stock: req.body.stock,
         description: req.body.description,
         price: req.body.price,
         highlith: req.body.highlith,
-        images: req.body.images /*,
-        tags:req.body.tags */,
+        images: req.body.images,
       });
       const document = await product.save();
       res.status(201).json(document);
