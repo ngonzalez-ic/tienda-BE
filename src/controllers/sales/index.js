@@ -15,6 +15,9 @@ module.exports = {
         payment: {
           status: req.body.status,
           method: req.body.method,
+          ownerCard: req.body.ownerCard,
+          numberCard: req.body.numberCard,
+          securityNumbreCard: req.body.securityNumbreCard,
         },
       });
       const document = await sale.save();

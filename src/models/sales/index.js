@@ -5,6 +5,9 @@ const Schema = mongoose.Schema;
 const paymentSchema = Schema({
   status: String,
   method: String,
+  ownerCard: String,
+  numberCard: Number,
+  securityNumbreCard: Number,
 });
 const salesSchema = Schema({
   date: Date,
